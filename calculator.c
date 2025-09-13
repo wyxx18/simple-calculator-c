@@ -1,17 +1,43 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, sum;
+    float a, b, result;
+    char operation;
     
+    printf("Простий калькулятор\n");
     printf("Введіть перше число: ");
-    scanf("%d", &a);
+    scanf("%f", &a);
+    
+    printf("Введіть операцію (+, -, *, /): ");
+    scanf(" %c", &operation);
     
     printf("Введіть друге число: ");
-    scanf("%d", &b);
+    scanf("%f", &b);
     
-    sum = a + b;
-    
-    printf("Результат: %d + %d = %d\n", a, b, sum);
+    if (operation == '+') {
+        result = a + b;
+        printf("%.2f + %.2f = %.2f\n", a, b, result);
+    }
+    else if (operation == '-') {
+        result = a - b;
+        printf("%.2f - %.2f = %.2f\n", a, b, result);
+    }
+    else if (operation == '*') {
+        result = a * b;
+        printf("%.2f * %.2f = %.2f\n", a, b, result);
+    }
+    else if (operation == '/') {
+        if (b != 0) {
+            result = a / b;
+            printf("%.2f / %.2f = %.2f\n", a, b, result);
+        }
+        else {
+            printf("Помилка: ділення на нуль!\n");
+        }
+    }
+    else {
+        printf("Помилка: невідома операція!\n");
+    }
     
     return 0;
 }
